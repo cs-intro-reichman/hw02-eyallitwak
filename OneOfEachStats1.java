@@ -6,6 +6,7 @@
  */
 public class OneOfEachStats1 {
 	public static void main (String[] args) {
+		//input for amount of experiments
 		int T = Integer.parseInt(args[0]),
 			totalBodyCount = 0,
 			famsOf2 = 0,
@@ -13,26 +14,26 @@ public class OneOfEachStats1 {
 			famsOf4More = 0;
 		
 		for(int i=0; i < T; i++) {
+			//flags for getting each gender
 			boolean gotBoy = false,
-				gotGirl = false;
+					gotGirl = false;
 				
 			int bodyCount = 0;
 		
+			//as long as we dont have both a boy
+			//and a girl, continue making babies
 			while (!gotBoy || !gotGirl) {
 				if (Math.random() < 0.5) {
 					gotGirl = true;
-					//System.out.print("g ");
 				}
 				else {
 					gotBoy = true;
-					//System.out.print("b ");
 				}
 			
 				bodyCount++;
 				totalBodyCount++;
 			}
 		
-			//System.out.println("\nYou made it... and now you have " + bodyCount + " children.");
 			if (bodyCount == 2)	famsOf2++;
 			else if (bodyCount == 3) famsOf3++;
 			else famsOf4More++;
