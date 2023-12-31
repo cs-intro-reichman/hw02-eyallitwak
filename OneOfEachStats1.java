@@ -21,18 +21,18 @@ public class OneOfEachStats1 {
 			while (!gotBoy || !gotGirl) {
 				if (Math.random() < 0.5) {
 					gotGirl = true;
-					System.out.print("g ");
+					//System.out.print("g ");
 				}
 				else {
 					gotBoy = true;
-					System.out.print("b ");
+					//System.out.print("b ");
 				}
 			
 				bodyCount++;
 				totalBodyCount++;
 			}
 		
-			System.out.println("\nYou made it... and now you have " + bodyCount + " children.");
+			//System.out.println("\nYou made it... and now you have " + bodyCount + " children.");
 			if (bodyCount == 2)	famsOf2++;
 			else if (bodyCount == 3) famsOf3++;
 			else famsOf4More++;
