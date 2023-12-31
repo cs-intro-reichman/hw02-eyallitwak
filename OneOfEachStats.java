@@ -15,15 +15,52 @@ public class OneOfEachStats {
 		// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);  
 		
-		//// In the previous version of this program, you used a statement like:
-		//// double rnd = Math.random();
-		//// Where "rnd" is the variable that stores the generated random value.
-		//// In this version of the program, replace this statement with:
-		//// double rnd = generator.nextDouble();
-		//// This statement will generate a random value in the range [0,1),
-		//// just like you had in the previous version, except that the 
-		//// randomization will be based on the given seed.
-		//// This is the only change that you have to do in the program.
+		int	totalBodyCount = 0,
+			famsOf2 = 0,
+			famsOf3 = 0,
+			famsOf4More = 0;
+		
+		for(int i=0; i < T; i++) {
+			boolean gotBoy = false,
+				gotGirl = false;
+				
+			int bodyCount = 0;
+		
+			while (!gotBoy || !gotGirl) {
+				if (generator.nextDouble() < 0.5) {
+					gotGirl = true;
+					System.out.print("g ");
+				}
+				else {
+					gotBoy = true;
+					System.out.print("b ");
+				}
+			
+				bodyCount++;
+				totalBodyCount++;
+			}
+		
+			System.out.println("\nYou made it... and now you have " + bodyCount + " children.");
+			if (bodyCount == 2)	famsOf2++;
+			else if (bodyCount == 3) famsOf3++;
+			else famsOf4More++;
+			}
+			
+			double avg = (double) totalBodyCount / T;
+			System.out.println("Average: " + avg + " children to get at least one of each gender.");
+			System.out.println("Number of families with 2 children: " + famsOf2);
+			System.out.println("Number of families with 3 children: " + famsOf3);
+			System.out.println("Number of families with 4 or more children: " + famsOf4More);
+			
+			if (famsOf2 >= Math.max(famsOf3, famsOf4More)) {
+				System.out.println("The most common number of children is 2.");
+			} else {
+				if (famsOf3 >= famsOf4More) {
+					System.out.println("The most common number of children is 3.");
+				} else {
+					System.out.println("The most common number of children is 4 or more.");
+				}
+			}
 		    
 	}
 }
